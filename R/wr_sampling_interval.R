@@ -20,7 +20,7 @@ wr_sampling_interval <- function(asd_data) {
     stop("Not enough white ref data to calculate sampling interval!")
   } else {
     white_interval <- white_interval |>
-      dplyr::mutate(interval = as.numeric(lead(index) - index)) |>
+      dplyr::mutate(interval = as.numeric(dplyr::lead(index) - index)) |>
       dplyr::pull(interval) |>
       median(na.rm = TRUE)
   }

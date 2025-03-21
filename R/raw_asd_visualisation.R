@@ -32,12 +32,12 @@ raw_asd_viz <- function(asd_data, include_wr = FALSE, alpha_value = NULL) {
     tidyr::pivot_longer(`350`:`2500`) |>
     dplyr::filter(!is.na(value)) |>
     ggplot2::ggplot() +
-    ggplot2::geom_line(aes(as.numeric(name), value, group = asd_fname, colour = class), alpha = x) +
+    ggplot2::geom_line(ggplot2::aes(as.numeric(name), value, group = asd_fname, colour = class), alpha = x) +
     ggplot2::scale_color_brewer(palette = "Dark2") +
     ggplot2::scale_x_continuous(breaks = c(350, 400, 550, 680, 1000, 1350, 1830, 2400, 2500)) +
     ggplot2::scale_y_continuous(breaks = seq(0, 1, 0.2)) +
     ggplot2::theme_bw() +
-    ggplot2::theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+    ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 90, vjust = 0.5)) +
     ggplot2::labs(
       x = "wavelength",
       y = "reflectance",

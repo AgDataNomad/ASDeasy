@@ -18,14 +18,14 @@ view_sampling_time <- function(asd_data) {
 
   asd_data |>
     ggplot2::ggplot() +
-    ggplot2::geom_point(aes(index, ctime, colour = class)) +
+    ggplot2::geom_point(ggplot2::aes(index, ctime, colour = class)) +
     ggplot2::geom_vline(xintercept = white_ref, colour = "darkgreen", alpha = 0.1) +
     ggplot2::scale_color_brewer(palette = "Dark2") +
     ggplot2::labs(x = "sample id", y = "time") +
     ggplot2::theme_bw() +
     ggplot2::theme(
-      panel.background = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank()
+      panel.background = ggplot2::element_blank(),
+      panel.grid.major = ggplot2::element_blank(),
+      panel.grid.minor = ggplot2::element_blank()
     )
 }
