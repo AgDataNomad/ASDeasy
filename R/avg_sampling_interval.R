@@ -3,6 +3,8 @@
 #' @param asd_data asd data read using read_asd_files() function
 #'
 #' @return average time between in sampling in seconds
+#'
+#'
 #' @export
 #'
 #' @examples
@@ -11,9 +13,9 @@
 #'
 avg_sampling_interval <- function(asd_data) {
   a <- asd_data |>
-    select(ctime) |>
-    mutate(interval = as.numeric(lead(ctime) - ctime)) |>
-    pull(interval) |>
+    dplyr::select(ctime) |>
+    dplyr::mutate(interval = as.numeric(dplyr::lead(ctime) - ctime)) |>
+    dplyr::pull(interval) |>
     median(na.rm = TRUE)
 
   return(a)

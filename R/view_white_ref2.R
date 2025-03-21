@@ -3,6 +3,8 @@
 #' @param asd_data asd data read using read_asd_files() function
 #'
 #' @return a ggplot
+#'
+#'
 #' @export
 #'
 #' @examples
@@ -11,15 +13,15 @@
 #'
 view_white_ref2 <- function(asd_data) {
   asd_data |>
-    filter(class == "WhtRef") |>
-    pivot_longer(`350`:`2500`) |>
-    ggplot() +
-    geom_line(aes(as.numeric(name), value, group = ASDFile)) +
-    geom_hline(yintercept = 1, linetype = "dashed", alpha = 0.25) +
-    facet_grid(ASDFile ~ ., scales = "free", switch = "y") +
-    scale_x_continuous(breaks = c(350, 400, 550, 680, 1000, 1350, 1830, 2400, 2500)) +
-    theme_bw() +
-    theme(
+    dplyr::filter(class == "WhtRef") |>
+    tidyr::pivot_longer(`350`:`2500`) |>
+    ggplot2::ggplot() +
+    ggplot2::geom_line(aes(as.numeric(name), value, group = ASDFile)) +
+    ggplot2::geom_hline(yintercept = 1, linetype = "dashed", alpha = 0.25) +
+    ggplot2::facet_grid(ASDFile ~ ., scales = "free", switch = "y") +
+    ggplot2::scale_x_continuous(breaks = c(350, 400, 550, 680, 1000, 1350, 1830, 2400, 2500)) +
+    ggplot2::theme_bw() +
+    ggplot2::theme(
       panel.background = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
@@ -29,7 +31,7 @@ view_white_ref2 <- function(asd_data) {
       strip.text.y.left = element_text(angle = 0),
       strip.background = element_blank()
     ) +
-    labs(
+    ggplot2::labs(
       title = "all white ref",
       y = "ASD File number", x = "wavelength"
     )

@@ -2,7 +2,9 @@
 #'
 #' @param asd_data asd data read using read_asd_files() function
 #'
-#' @return date(s) when sampling occured
+#' @return date(s) when sampling occurred
+#'
+#'
 #' @export
 #'
 #' @examples
@@ -11,10 +13,10 @@
 #'
 data_collection_days <- function(asd_data) {
   d_days <- asd_data |>
-    select(ctime) |>
-    mutate(date = str_sub(ctime, 1, 10)) |>
-    distinct(date) |>
-    pull()
+    dplyr::select(ctime) |>
+    dplyr::mutate(date = str_sub(ctime, 1, 10)) |>
+    dplyr::distinct(date) |>
+    dplyr::pull()
 
   return(d_days)
 }

@@ -9,6 +9,9 @@ wr_sampling_interval(asd_data)
 \arguments{
 \item{asd_data}{asd data read using read_asd_files() function}
 }
+\value{
+a ggplot
+}
 \description{
 Average sampling between two white reference
 }

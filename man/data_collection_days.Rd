@@ -10,7 +10,7 @@ data_collection_days(asd_data)
 \item{asd_data}{asd data read using read_asd_files() function}
 }
 \value{
-date(s) when sampling occured
+date(s) when sampling occurred
 }
 \description{
 Find when data collection happened
