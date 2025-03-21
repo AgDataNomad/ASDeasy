@@ -22,7 +22,7 @@ read_asd_files <- function(file_path) {
     purrr::set_names(basename(a)) |>
     dplyr::bind_rows(.id = "asd_fname") |>
     dplyr::mutate(ASDFile = as.numeric(stringr::str_extract(asd_fname, "[0-9]{5}"))) |>
-    dplyr::mutate(index = 1:n())
+    dplyr::mutate(index = 1:dplyr::n())
 
   row.names(a) <- NULL
 
