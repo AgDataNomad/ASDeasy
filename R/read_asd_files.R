@@ -38,7 +38,7 @@ read_asd_files <- function(file_path) {
       TRUE ~ "error"
     )) |>
     dplyr::select(asd_fname, class) |>
-    dplyr::mutate(which_wr = case_when(
+    dplyr::mutate(which_wr = dplyr::case_when(
       class == "WhtRef" ~ asd_fname,
       TRUE ~ NA_character_
     )) |>
