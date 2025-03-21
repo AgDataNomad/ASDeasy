@@ -13,7 +13,8 @@ Imports:
     asdreader,
     dplyr,
     ggplot2,
-    magrittr,
     patchwork,
-    purrr
+    purrr,
+    stringr,
+    tidyr
 RoxygenNote: 7.3.2
