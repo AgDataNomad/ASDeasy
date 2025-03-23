@@ -2,9 +2,10 @@ Package: ASDeasy
 Type: Package
 Title: An easy way to read and visualise ASD data, do some quality checks from file path
 Version: 0.1.0
-Author: Aswin Singaram Natarajan
-Maintainer: Aswin.SingaramNatarajan@csiro.au
-Description: Read asd files from dir using asdreader package
+Author: "Aswin Singaram Natarajan"
+Maintainer: Aswin <Aswin.SingaramNatarajan@csiro.au>
+Description: Read asd files from dir using asdreader package.
+    Using asdreader to read asd files from dir path and do some quick quality checks.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
