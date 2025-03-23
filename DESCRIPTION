@@ -1,11 +1,10 @@
 Package: ASDeasy
 Type: Package
-Title: What the Package Does (Title Case)
+Title: An easy way to read and visualise ASD data from file path
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Aswin Singaram Natarajan
+Maintainer: Aswin.SingaramNatarajan@csiro.au
+Description: Read asd files from dir using asdreader package
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
