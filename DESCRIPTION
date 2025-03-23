@@ -1,6 +1,6 @@
 Package: ASDeasy
 Type: Package
-Title: An easy way to read and visualise ASD data from file path
+Title: An easy way to read and visualise ASD data, do some quality checks from file path
 Version: 0.1.0
 Author: Aswin Singaram Natarajan
 Maintainer: Aswin.SingaramNatarajan@csiro.au
