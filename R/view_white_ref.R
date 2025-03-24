@@ -13,7 +13,10 @@
 #' print("Hello!")
 #'
 view_white_ref <- function(asd_data, which_white_ref = NULL) {
-  warning("Use fn white_ref_check() to identify white ref ASD file number!")
+  warning("Use function
+          view_white_ref_quality()
+          to identify specific white ref ASD file number
+          for further investigation!")
 
   if (is.null(which_white_ref)) {
     asd_data
