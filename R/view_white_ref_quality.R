@@ -67,7 +67,7 @@ view_white_ref_quality <- function(asd_data) {
       title = "white ref raw data"
     )
 
-  p <- p2 + p1 + patchwork::plot_layout(ncol = 1)
+  p <- patchwork::wrap_plots(p2, p1, ncol = 1)
 
   p
 }
