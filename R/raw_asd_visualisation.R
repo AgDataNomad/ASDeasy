@@ -28,7 +28,8 @@ raw_asd_viz <- function(asd_data, include_wr = FALSE, alpha_value = NULL) {
   }
 
   asd_data |>
-    dplyr::filter(class != "Opt") |>
+    dplyr::filter(class != "Opt" ) |>
+    dplyr::filter(class != "FATAL") |>
     tidyr::pivot_longer(`350`:`2500`) |>
     dplyr::filter(!is.na(value)) |>
     ggplot2::ggplot() +
