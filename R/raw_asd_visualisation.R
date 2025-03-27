@@ -28,9 +28,9 @@ raw_asd_viz <- function(asd_data, include_wr = FALSE, alpha_value = NULL) {
   }
 
   fatal_data <- asd_data |>
-    filter(class != "FATAL") |>
-    distinct(asd_fname) |>
-    pull()
+    dplyr::filter(class != "FATAL") |>
+    dplyr::distinct(asd_fname) |>
+    dplyr::pull()
 
   if(length(fatal_data)>=1){
     print(paste("Following file(s) removed:", fatal_data))
