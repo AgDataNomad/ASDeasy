@@ -27,6 +27,15 @@ raw_asd_viz <- function(asd_data, include_wr = FALSE, alpha_value = NULL) {
     x <- alpha_value
   }
 
+  fatal_data <- asd_data |>
+    filter(class != "FATAL") |>
+    distinct(asd_fname) |>
+    pull()
+
+  if(length(fatal_data)>=1){
+    print(paste("Following file(s) removed:", fatal_data))
+  }
+
   asd_data |>
     dplyr::filter(class != "Opt" ) |>
     dplyr::filter(class != "FATAL") |>
@@ -45,4 +54,5 @@ raw_asd_viz <- function(asd_data, include_wr = FALSE, alpha_value = NULL) {
       title = "raw reflectance"
     ) +
     ggplot2::coord_equal(ratio = 1000)
+
 }
