@@ -34,8 +34,8 @@ read_asd_files <- function(file_path) {
     dplyr::mutate(class = dplyr::case_when(
       value %in% c(Inf, -Inf) ~ "Opt",
       dplyr::between(value, 2000, 3000) ~ "WhtRef",
-      value >= 300 ~ "plants",
-      value < 299 ~ "error",
+      dplyr::between(value, 300, 1999) ~ "plants",
+      value < 299 ~ "not-plant",
       TRUE ~ "FATAL"
     )) |>
     dplyr::select(asd_fname, class) |>
