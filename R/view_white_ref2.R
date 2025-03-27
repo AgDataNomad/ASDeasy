@@ -21,7 +21,8 @@ view_white_ref2 <- function(asd_data, which_white_ref = NULL) {
       dplyr::filter(ASDFile %in% which_white_ref)
   }
 
-  dplyr::filter(class == "WhtRef") |>
+  asd_data |>
+    dplyr::filter(class == "WhtRef") |>
     tidyr::pivot_longer(`350`:`2500`) |>
     ggplot2::ggplot() +
     ggplot2::geom_line(ggplot2::aes(as.numeric(name), value, group = ASDFile)) +
