@@ -1,6 +1,7 @@
 #' Visualise faceted White Reference
 #'
 #' @param asd_data asd data read using read_asd_files() function
+#' @param which_white_ref take a number of vector indicating white white ref files to display
 #'
 #' @return a ggplot
 #'
