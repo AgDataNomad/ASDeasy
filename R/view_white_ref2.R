@@ -11,15 +11,25 @@
 #'
 #' print("Hello!")
 #'
-view_white_ref2 <- function(asd_data) {
-  asd_data |>
-    dplyr::filter(class == "WhtRef") |>
+view_white_ref2 <- function(asd_data, which_white_ref = NULL) {
+
+  if (is.null(which_white_ref)) {
+    asd_data
+  } else {
+    asd_data <- asd_data |>
+      dplyr::filter(ASDFile %in% which_white_ref)
+  }
+
+  dplyr::filter(class == "WhtRef") |>
     tidyr::pivot_longer(`350`:`2500`) |>
     ggplot2::ggplot() +
     ggplot2::geom_line(ggplot2::aes(as.numeric(name), value, group = ASDFile)) +
-    ggplot2::geom_hline(yintercept = 1, linetype = "dashed", alpha = 0.25) +
-    ggplot2::facet_grid(ASDFile ~ ., scales = "free", switch = "y") +
-    ggplot2::scale_x_continuous(breaks = c(350, 400, 550, 680, 1000, 1350, 1830, 2400, 2500)) +
+    ggplot2::geom_hline(yintercept = 1, alpha = 0.25) +
+    ggplot2::geom_rect(xmin = 350, xmax = 2500, ymin = 0.99, ymax = 1.01,
+                       alpha = 0.1, colour ="coral", fill = NA,
+                       lwd = 0.05, linetype = "dotted")+
+    ggplot2::facet_grid(ASDFile ~ ., switch = "y") +
+    ggplot2::scale_x_continuous(breaks = c(400, 550, 680, 1000, 1350, 1830, 2400)) +
     ggplot2::theme_bw() +
     ggplot2::theme(
       panel.background = ggplot2::element_blank(),
