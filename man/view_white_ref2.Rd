@@ -4,10 +4,12 @@
 \alias{view_white_ref2}
 \title{Visualise faceted White Reference}
 \usage{
-view_white_ref2(asd_data)
+view_white_ref2(asd_data, which_white_ref = NULL)
 }
 \arguments{
 \item{asd_data}{asd data read using read_asd_files() function}
+
+\item{which_white_ref}{take a number of vector indicating white white ref files to display}
 }
 \value{
 a ggplot
