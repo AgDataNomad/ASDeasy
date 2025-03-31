@@ -33,7 +33,7 @@ raw_asd_viz <- function(asd_data, include_wr = FALSE, alpha_value = NULL) {
     dplyr::pull()
 
   if(length(fatal_data)>=1){
-    print(paste("Following file(s) removed:", fatal_data))
+    warning(paste("Following file(s) removed due to FATAL error:", fatal_data))
   }
 
   asd_data |>
