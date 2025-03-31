@@ -28,7 +28,7 @@ raw_asd_viz <- function(asd_data, include_wr = FALSE, alpha_value = NULL) {
   }
 
   fatal_data <- asd_data |>
-    dplyr::filter(class != "FATAL") |>
+    dplyr::filter(class == "FATAL") |>
     dplyr::distinct(asd_fname) |>
     dplyr::pull()
 
