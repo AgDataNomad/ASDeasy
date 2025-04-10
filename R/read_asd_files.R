@@ -30,8 +30,12 @@ read_asd_files <- function(file_path) {
     dplyr::select(asd_fname, `350`:`2500`) |>
     tidyr::pivot_longer(-asd_fname) |>
     dplyr::group_by(asd_fname) |>
+    dplyr::mutate(class = dplyr::case_when(max(value)-min(value)>1 ~ "FATAL",
+                                           TRUE ~ NA)) |>
+    dplyr::group_by(asd_fname, class) |>
     dplyr::summarise(value = sum(value)) |>
     dplyr::mutate(class = dplyr::case_when(
+      !is.na(class) ~ "FATAL",
       value %in% c(Inf, -Inf) ~ "Opt",
       dplyr::between(value, 2000, 3000) ~ "WhtRef",
       dplyr::between(value, 300, 1999) ~ "plants",
