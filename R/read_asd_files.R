@@ -17,7 +17,7 @@ read_asd_files <- function(file_path) {
   created_time <- file.info(a)$mtime
 
   a <- a |>
-    purrr::map(asdreader::get_spectra) |>
+    purrr::map(read_spectra) |>
     purrr::map(as.data.frame) |>
     purrr::set_names(basename(a)) |>
     dplyr::bind_rows(.id = "asd_fname") |>
