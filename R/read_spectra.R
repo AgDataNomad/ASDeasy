@@ -16,7 +16,9 @@ read_spectra <- function(fpath){
 
   fv <- read_file_version(fpath)
 
-  if (fv == 4.3){
+  dtype <- read_data_type(fpath)
+
+  if (fv == 4.3 | dtype == "Raw"){
     seek(con, where = 484)
     # The file format appears to have changed with file version and even file pre-processing (raw and ref) The following
     # code guess the size argument based on the number of channels it should retrieve
