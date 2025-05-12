@@ -30,7 +30,7 @@ read_asd_files <- function(file_path) {
     dplyr::select(asd_fname, `350`:`2500`) |>
     tidyr::pivot_longer(-asd_fname) |>
     dplyr::group_by(asd_fname) |>
-    dplyr::mutate(class = dplyr::case_when(read_data_type(file_path) == "Raw" ~ "Opt",
+    dplyr::mutate(class = dplyr::case_when(max(value)-min(value)>7500 ~ "Opt",
                                            max(value)-min(value)>1 ~ "FATAL",
                                            TRUE ~ NA)) |>
     dplyr::group_by(asd_fname, class) |>
