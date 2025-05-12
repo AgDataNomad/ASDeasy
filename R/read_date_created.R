@@ -19,6 +19,9 @@ read_date_created <- function(fpath){
 
   DateTime <- as.POSIXct(tmp, origin = "1970-01-01")
 
+  DateTime <- format(DateTime, "%Y-%m-%d %H:%M:%S")
+
   close(con)
+
   return(DateTime)
 }
