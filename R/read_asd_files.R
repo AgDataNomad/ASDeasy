@@ -48,6 +48,7 @@ read_asd_files <- function(file_path) {
       class == "WhtRef" ~ asd_fname,
       TRUE ~ NA_character_
     )) |>
+    dplyr::ungroup() |>
     tidyr::fill(which_wr, .direction = "down")
 
   a <- a |>
